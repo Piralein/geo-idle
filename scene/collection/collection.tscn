@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://do5xcmpxe8fqs"]
+
+[ext_resource type="Script" uid="uid://ccggnrg0wwbir" path="res://scene/collection/collection.gd" id="1_t4dl4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvi3v"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bksyv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1y3i"]
+draw_center = false
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2jvr"]
+draw_center = false
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.69411767, 0.69411767, 0.69411767, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvi3v"]
+
+[node name="Collection" type="Control" unique_id=1810181723 node_paths=PackedStringArray("_count_label", "_grid_container", "_search", "_group_select")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t4dl4")
+_count_label = NodePath("Content/HBoxContainer/Catalog/VBoxContainer/CountLabel")
+_grid_container = NodePath("Content/HBoxContainer/Catalog/VBoxContainer/ScrollContainer/ItemGrid")
+_search = NodePath("Content/HBoxContainer/Toolbar/VBoxContainer/SearchInput")
+_group_select = NodePath("Content/HBoxContainer/Toolbar/VBoxContainer/GroupSelect")
+
+[node name="Content" type="PanelContainer" parent="." unique_id=775594116]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvi3v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content" unique_id=1296011106]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Toolbar" type="PanelContainer" parent="Content/HBoxContainer" unique_id=1193100526]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bksyv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/HBoxContainer/Toolbar" unique_id=1891432162]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Heading" type="Label" parent="Content/HBoxContainer/Toolbar/VBoxContainer" unique_id=367430925]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Filters and Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Content/HBoxContainer/Toolbar/VBoxContainer" unique_id=1093364990]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_x1y3i")
+
+[node name="SearchInput" type="LineEdit" parent="Content/HBoxContainer/Toolbar/VBoxContainer" unique_id=596141322]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Search"
+
+[node name="GroupSelect" type="OptionButton" parent="Content/HBoxContainer/Toolbar/VBoxContainer" unique_id=701942200]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+text_overrun_behavior = 1
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/id = 0
+
+[node name="VSeparator" type="VSeparator" parent="Content/HBoxContainer" unique_id=1234139285]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_w2jvr")
+
+[node name="Catalog" type="PanelContainer" parent="Content/HBoxContainer" unique_id=31391246]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uvi3v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/HBoxContainer/Catalog" unique_id=1376830627]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="CountLabel" type="Label" parent="Content/HBoxContainer/Catalog/VBoxContainer" unique_id=1725825175]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Showing 0 Minerals"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Content/HBoxContainer/Catalog/VBoxContainer" unique_id=900299198]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_x1y3i")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/HBoxContainer/Catalog/VBoxContainer" unique_id=2022068767]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 2
+
+[node name="ItemGrid" type="GridContainer" parent="Content/HBoxContainer/Catalog/VBoxContainer/ScrollContainer" unique_id=392338135]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="CloseButton" type="Button" parent="." unique_id=857974272]
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+text = "X"
+
+[connection signal="text_changed" from="Content/HBoxContainer/Toolbar/VBoxContainer/SearchInput" to="." method="_search_input_text_changed"]
+[connection signal="item_selected" from="Content/HBoxContainer/Toolbar/VBoxContainer/GroupSelect" to="." method="_filter_select_item_selected"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

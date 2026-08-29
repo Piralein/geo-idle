@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://ke70na38mh70"]
+
+[ext_resource type="Texture2D" uid="uid://5xwjhklbbw0o" path="res://asset/ui/map/map-1.png" id="1_bkhc6"]
+[ext_resource type="Script" uid="uid://cixmlqsyo7eyg" path="res://scene/map/map.gd" id="1_yyonm"]
+[ext_resource type="PackedScene" uid="uid://dwojbvurlunem" path="res://scene/map/map_location/map_location.tscn" id="3_ihkbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1y3i"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Map" type="Control" unique_id=74062142]
+custom_minimum_size = Vector2(600, 400)
+custom_maximum_size = Vector2(600, 400)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yyonm")
+
+[node name="Panel" type="Panel" parent="." unique_id=400940439]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x1y3i")
+
+[node name="Region1" type="Control" parent="." unique_id=1353836618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Region1" unique_id=265000282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bkhc6")
+
+[node name="Locations" type="GridContainer" parent="Region1" unique_id=962293880]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="Unassigned" parent="Region1/Locations" unique_id=1215640843 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned2" parent="Region1/Locations" unique_id=955805641 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned3" parent="Region1/Locations" unique_id=2056635941 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned4" parent="Region1/Locations" unique_id=511972965 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned5" parent="Region1/Locations" unique_id=1802138907 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned6" parent="Region1/Locations" unique_id=1639623068 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned7" parent="Region1/Locations" unique_id=1410437077 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Route3" parent="Region1/Locations" unique_id=1396535585 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 3
+
+[node name="Unassigned8" parent="Region1/Locations" unique_id=146043499 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned9" parent="Region1/Locations" unique_id=1643519857 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned10" parent="Region1/Locations" unique_id=994685221 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned11" parent="Region1/Locations" unique_id=1305797704 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Route4" parent="Region1/Locations" unique_id=894500598 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 4
+
+[node name="GraniteCity" parent="Region1/Locations" unique_id=2066853621 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 5000
+
+[node name="Route2" parent="Region1/Locations" unique_id=1704727700 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 2
+
+[node name="Route1" parent="Region1/Locations" unique_id=1703725621 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 1
+
+[node name="Unassigned12" parent="Region1/Locations" unique_id=1181723196 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned13" parent="Region1/Locations" unique_id=976844419 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Ocean1" parent="Region1/Locations" unique_id=1615943600 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Ocean2" parent="Region1/Locations" unique_id=2072274131 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Ocean3" parent="Region1/Locations" unique_id=1115477306 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="DioriteTown" parent="Region1/Locations" unique_id=549863230 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+location_id = 5001
+
+[node name="Unassigned14" parent="Region1/Locations" unique_id=289474672 instance=ExtResource("3_ihkbp")]
+layout_mode = 2
+
+[node name="Unassigned15" parent="Region1/Locations" unique_id=15679783 instance=ExtResource("3_ihkbp")]
+layout_mode = 2

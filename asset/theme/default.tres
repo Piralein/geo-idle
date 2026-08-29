@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://bs8m12r8fglhg"]
+
+[ext_resource type="FontFile" uid="uid://bpannuefeksyt" path="res://asset/font/m5x7.ttf" id="1_sbaqr"]
+[ext_resource type="FontFile" uid="uid://boiot1v8hfpt1" path="res://asset/font/m3x6.ttf" id="1_vkesy"]
+
+[resource]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_vkesy")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_sbaqr")
+LineEdit/font_sizes/font_size = 16
+LineEdit/fonts/font = ExtResource("1_sbaqr")
+OptionButton/font_sizes/font_size = 16
+OptionButton/fonts/font = ExtResource("1_sbaqr")
+PopupMenu/font_sizes/font_size = 16
+PopupMenu/fonts/font = ExtResource("1_sbaqr")

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://djcxqud8t0q27"]
+
+[ext_resource type="Script" uid="uid://b34m76n0er0v6" path="res://scene/notification_list/notification/notification.gd" id="1_dw1i8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw1i8"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="Notification" type="PanelContainer" unique_id=1447098500 node_paths=PackedStringArray("message_label")]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dw1i8")
+script = ExtResource("1_dw1i8")
+message_label = NodePath("Message")
+
+[node name="Message" type="Label" parent="." unique_id=602507989]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

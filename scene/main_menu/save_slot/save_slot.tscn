@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://uasr7j635xns"]
+
+[ext_resource type="Script" uid="uid://d00lfa3vf4akk" path="res://scene/main_menu/save_slot/save_slot.gd" id="1_ucan3"]
+[ext_resource type="Texture2D" uid="uid://cvx16omg548fv" path="res://asset/ui/main_menu/save_slot/ruby_slot.png" id="2_pl5q3"]
+[ext_resource type="Shader" uid="uid://cx0yffcf0uf5c" path="res://asset/shader/outline.gdshader" id="2_sj6rw"]
+[ext_resource type="FontFile" uid="uid://cl84iwo5b7sgn" path="res://asset/font/m6x11.ttf" id="3_pl5q3"]
+[ext_resource type="Texture2D" uid="uid://dv70ak743d1qr" path="res://asset/ui/main_menu/save_slot/ruby_marker.png" id="5_fbpux"]
+[ext_resource type="Texture2D" uid="uid://dfl27drxsuspo" path="res://asset/ui/main_menu/save_slot/delete_icon.png" id="6_c57mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1y3i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k2ij"]
+resource_local_to_scene = true
+shader = ExtResource("2_sj6rw")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/enabled = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj6rw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbpux"]
+resource_local_to_scene = true
+shader = ExtResource("2_sj6rw")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/enabled = 0
+
+[node name="Control" type="Control" unique_id=509988457 node_paths=PackedStringArray("slot_button", "slot_texture", "slot_label", "delete_button", "delete_texture")]
+custom_minimum_size = Vector2(256, 256)
+custom_maximum_size = Vector2(256, 256)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ucan3")
+slot_button = NodePath("SlotButton")
+slot_texture = NodePath("SlotButton/Background")
+slot_label = NodePath("SlotButton/Label")
+delete_button = NodePath("DeleteButton")
+delete_texture = NodePath("DeleteButton/Background")
+
+[node name="SlotButton" type="Button" parent="." unique_id=1863842709]
+custom_minimum_size = Vector2(256, 184)
+custom_maximum_size = Vector2(256, 184)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 184.0
+grow_horizontal = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x1y3i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1y3i")
+metadata/_edit_group_ = true
+
+[node name="Background" type="TextureRect" parent="SlotButton" unique_id=454598623]
+material = SubResource("ShaderMaterial_3k2ij")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_pl5q3")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="SlotButton" unique_id=140628854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 10
+theme_override_fonts/font = ExtResource("3_pl5q3")
+theme_override_font_sizes/font_size = 32
+text = "Geodex: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeleteButton" type="Button" parent="." unique_id=1195277126]
+custom_minimum_size = Vector2(80, 96)
+custom_maximum_size = Vector2(80, 96)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -111.0
+offset_right = -32.0
+offset_bottom = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_sj6rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sj6rw")
+metadata/_edit_group_ = true
+
+[node name="Background" type="TextureRect" parent="DeleteButton" unique_id=1268711731]
+material = SubResource("ShaderMaterial_fbpux")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_fbpux")
+
+[node name="Icon" type="TextureRect" parent="DeleteButton" unique_id=780833537]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -23.0
+offset_right = 16.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_c57mv")
+
+[connection signal="focus_entered" from="SlotButton" to="." method="_on_slot_active"]
+[connection signal="focus_exited" from="SlotButton" to="." method="_on_slot_inactive"]
+[connection signal="mouse_entered" from="SlotButton" to="." method="_on_slot_active"]
+[connection signal="mouse_exited" from="SlotButton" to="." method="_on_slot_inactive"]
+[connection signal="pressed" from="SlotButton" to="." method="_on_slot_pressed"]
+[connection signal="focus_entered" from="DeleteButton" to="." method="_on_delete_active"]
+[connection signal="focus_exited" from="DeleteButton" to="." method="_on_delete_inactive"]
+[connection signal="mouse_entered" from="DeleteButton" to="." method="_on_delete_active"]
+[connection signal="mouse_exited" from="DeleteButton" to="." method="_on_delete_inactive"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_pressed"]

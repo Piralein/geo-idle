@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://c3d7qi4oe1fun"]
+
+[ext_resource type="Script" uid="uid://cqhf51qc5dj3g" path="res://scene/location/location.gd" id="1_vnfcf"]
+[ext_resource type="Texture2D" uid="uid://derh77pxsoets" path="res://asset/ui/location/background/fallback.png" id="2_s0xnx"]
+[ext_resource type="StyleBox" uid="uid://dxy228ai6je51" path="res://scene/location/toolbar_stylebox.tres" id="3_y5tfk"]
+[ext_resource type="Texture2D" uid="uid://dbynui7krfowj" path="res://asset/mineral/fallback.png" id="3_ygdd5"]
+[ext_resource type="Texture2D" uid="uid://cahessv46ei14" path="res://asset/cursor/search.png" id="6_ygdd5"]
+[ext_resource type="Texture2D" uid="uid://nupv21mwyg36" path="res://asset/ui/location/locked_icon.png" id="7_0bkqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2jvr"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gl0n8"]
+
+[sub_resource type="Animation" id="Animation_ygdd5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProspectIcon:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y5tfk"]
+resource_name = "circle"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProspectIcon:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(4, -6), Vector2(8, -12), Vector2(12, -18), Vector2(16, -12), Vector2(20, -6), Vector2(24, 0), Vector2(20, 6), Vector2(16, 12), Vector2(12, 18), Vector2(8, 12), Vector2(4, 6), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5tfk"]
+_data = {
+&"RESET": SubResource("Animation_ygdd5"),
+&"circle": SubResource("Animation_y5tfk")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0c6e"]
+bg_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt7dt"]
+bg_color = Color(0.8666667, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygdd5"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="Location" type="Control" unique_id=32714691 node_paths=PackedStringArray("location_background", "location_name", "location_meta", "encounter_toolbar", "encounter_name", "encounter_icon", "encounter_icon_locked", "encounter_icon_prospect", "encounter_prospect_chance", "encounter_prospect_animation", "encounter_health_bar", "encounter_health_bar_label", "landmark_toolbar", "landmark_npc_list")]
+custom_minimum_size = Vector2(600, 250)
+custom_maximum_size = Vector2(600, 250)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_vnfcf")
+location_background = NodePath("Background")
+location_name = NodePath("Layout/LocationToolbar/HBoxContainer/Name")
+location_meta = NodePath("Layout/LocationToolbar/HBoxContainer/Meta")
+encounter_toolbar = NodePath("Layout/EncounterToolbar")
+encounter_name = NodePath("Layout/EncounterToolbar/VBoxContainer/MineralToolbar/HBoxContainer/MineralName")
+encounter_icon = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon")
+encounter_icon_locked = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon/MissingIcon")
+encounter_icon_prospect = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon/ProspectIcon")
+encounter_prospect_chance = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/ProspectChance")
+encounter_prospect_animation = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon/AnimationPlayer")
+encounter_health_bar = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/HealthBar")
+encounter_health_bar_label = NodePath("Layout/EncounterToolbar/VBoxContainer/Encounter/HealthBar/HealthLabel")
+landmark_toolbar = NodePath("Layout/LandmarkToolbar")
+landmark_npc_list = NodePath("Layout/LandmarkToolbar/HBoxContainer/NpcList")
+
+[node name="Panel" type="Panel" parent="." unique_id=231756758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w2jvr")
+
+[node name="Background" type="TextureRect" parent="." unique_id=572840880]
+self_modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s0xnx")
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1740047380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LocationToolbar" type="PanelContainer" parent="Layout" unique_id=1182545518]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("3_y5tfk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/LocationToolbar" unique_id=1495709370]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Layout/LocationToolbar/HBoxContainer" unique_id=884626205]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Route 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Meta" type="Label" parent="Layout/LocationToolbar/HBoxContainer" unique_id=363897347]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "0 minerals mined"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EncounterToolbar" type="PanelContainer" parent="Layout" unique_id=422352855]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gl0n8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/EncounterToolbar" unique_id=1969147976]
+layout_mode = 2
+
+[node name="Encounter" type="VBoxContainer" parent="Layout/EncounterToolbar/VBoxContainer" unique_id=658392873]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="EncounterIcon" type="TextureRect" parent="Layout/EncounterToolbar/VBoxContainer/Encounter" unique_id=743716024]
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ygdd5")
+stretch_mode = 5
+
+[node name="MissingIcon" type="TextureRect" parent="Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon" unique_id=1017904145]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_0bkqe")
+stretch_mode = 5
+
+[node name="ProspectIcon" type="TextureRect" parent="Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon" unique_id=1752790917]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 16.0
+grow_vertical = 0
+offset_transform_enabled = true
+texture = ExtResource("6_ygdd5")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layout/EncounterToolbar/VBoxContainer/Encounter/EncounterIcon" unique_id=1918987767]
+libraries/ = SubResource("AnimationLibrary_y5tfk")
+
+[node name="HealthBar" type="ProgressBar" parent="Layout/EncounterToolbar/VBoxContainer/Encounter" unique_id=511769958]
+custom_minimum_size = Vector2(384, 26)
+custom_maximum_size = Vector2(384, 26)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_a0c6e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tt7dt")
+step = 1.0
+rounded = true
+show_percentage = false
+metadata/_edit_group_ = true
+
+[node name="HealthLabel" type="Label" parent="Layout/EncounterToolbar/VBoxContainer/Encounter/HealthBar" unique_id=1831878727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "0 / 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProspectChance" type="Label" parent="Layout/EncounterToolbar/VBoxContainer/Encounter" unique_id=1492153133]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100% chance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MineralToolbar" type="PanelContainer" parent="Layout/EncounterToolbar/VBoxContainer" unique_id=1506365930]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("3_y5tfk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/EncounterToolbar/VBoxContainer/MineralToolbar" unique_id=1394727530]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MineralName" type="Label" parent="Layout/EncounterToolbar/VBoxContainer/MineralToolbar/HBoxContainer" unique_id=1814842099]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "unknown"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LandmarkToolbar" type="PanelContainer" parent="Layout" unique_id=2049587813]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ygdd5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Layout/LandmarkToolbar" unique_id=15126298]
+layout_mode = 2
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="Layout/LandmarkToolbar/HBoxContainer" unique_id=1164790792]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Placeholder" type="Control" parent="Layout/LandmarkToolbar/HBoxContainer" unique_id=2068731637]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NpcList" type="VBoxContainer" parent="Layout/LandmarkToolbar/HBoxContainer" unique_id=699591405]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 8

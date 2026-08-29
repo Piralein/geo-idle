@@ -1,0 +1,372 @@
+[gd_scene format=3 uid="uid://r8gvla5gcqec"]
+
+[ext_resource type="Script" uid="uid://b1018ffg66pjf" path="res://scene/main_menu/main_menu.gd" id="1_o25w2"]
+[ext_resource type="Texture2D" uid="uid://cyjqmrqfdwvai" path="res://asset/ui/background.png" id="2_1vqx8"]
+[ext_resource type="FontFile" uid="uid://cl84iwo5b7sgn" path="res://asset/font/m6x11.ttf" id="2_6836v"]
+[ext_resource type="Texture2D" uid="uid://cmpswb4d10vkf" path="res://asset/ui/logo/geoidle-logo.png" id="3_eo5a4"]
+[ext_resource type="PackedScene" uid="uid://uasr7j635xns" path="res://scene/main_menu/save_slot/save_slot.tscn" id="7_vny3a"]
+[ext_resource type="Texture2D" uid="uid://bwcqqabggckdk" path="res://asset/ui/main_menu/speak-bob.png" id="10_3k2ij"]
+[ext_resource type="Shader" uid="uid://cx0yffcf0uf5c" path="res://asset/shader/outline.gdshader" id="10_bj3ug"]
+[ext_resource type="Texture2D" uid="uid://boa03gakhq0gc" path="res://asset/ui/main_menu/canary.png" id="10_rq7sb"]
+[ext_resource type="Texture2D" uid="uid://dp6mqvobljqlo" path="res://asset/ui/main_menu/canary-idle.png" id="11_3k2ij"]
+[ext_resource type="Texture2D" uid="uid://clk0qubl4yxs4" path="res://asset/ui/main_menu/cage.png" id="12_lt21p"]
+[ext_resource type="Texture2D" uid="uid://buktvfsrwjmgm" path="res://asset/ui/main_menu/exit-sign.png" id="14_lt21p"]
+
+[sub_resource type="Gradient" id="Gradient_3k2ij"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3k2ij"]
+gradient = SubResource("Gradient_3k2ij")
+
+[sub_resource type="Animation" id="Animation_3k2ij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lt21p"]
+resource_name = "subtitle"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:offset_transform_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvq8n"]
+_data = {
+&"RESET": SubResource("Animation_3k2ij"),
+&"subtitle": SubResource("Animation_lt21p")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2jvr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3k2ij"]
+shader = ExtResource("10_bj3ug")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/enabled = 0
+
+[sub_resource type="Animation" id="Animation_bj3ug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canary:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_rq7sb")]
+}
+
+[sub_resource type="Animation" id="Animation_eo5a4"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canary:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_rq7sb"), ExtResource("11_3k2ij")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lt21p"]
+_data = {
+&"RESET": SubResource("Animation_bj3ug"),
+&"idle": SubResource("Animation_eo5a4")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj3ug"]
+bg_color = Color(0, 0, 0, 0.3137255)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvq8n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1y3i"]
+shader = ExtResource("10_bj3ug")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/enabled = 0
+
+[node name="MainMenu" type="Control" unique_id=1321234536 node_paths=PackedStringArray("credits_texture", "credits_container", "exit_button", "exit_texture")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o25w2")
+credits_texture = NodePath("CreditsButton/Canary")
+credits_container = NodePath("CreditsContainer")
+exit_button = NodePath("ExitButton")
+exit_texture = NodePath("ExitButton/ExitSign")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1137684334]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1vqx8")
+stretch_mode = 5
+
+[node name="Shadow" type="ColorRect" parent="Background" unique_id=856260297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=924229134]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="LogoContainer" type="VBoxContainer" parent="Layout" unique_id=1595976359]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LogoImage" type="TextureRect" parent="Layout/LogoContainer" unique_id=1780808317]
+custom_minimum_size = Vector2(0, 222)
+layout_mode = 2
+texture = ExtResource("3_eo5a4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Layout/LogoContainer/LogoImage" unique_id=1074342707]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = -25.999985
+offset_right = 294.0
+offset_bottom = 12.000015
+grow_horizontal = 2
+rotation = 0.5235988
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 48
+text = "gotta prospect em all"
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Layout/LogoContainer/LogoImage/Label" unique_id=845408394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.760895
+offset_right = 67.774445
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_3k2ij")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layout/LogoContainer/LogoImage" unique_id=1946822124]
+libraries/ = SubResource("AnimationLibrary_kvq8n")
+autoplay = &"subtitle"
+
+[node name="LogoText" type="Label" parent="Layout/LogoContainer" unique_id=1174426810]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_6836v")
+theme_override_font_sizes/font_size = 64
+text = "GeoIdle"
+horizontal_alignment = 1
+
+[node name="SaveSlots" type="HBoxContainer" parent="Layout" unique_id=1543457384]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Ruby" parent="Layout/SaveSlots" unique_id=1863842709 instance=ExtResource("7_vny3a")]
+layout_mode = 2
+slot = 1
+
+[node name="Sapphire" parent="Layout/SaveSlots" unique_id=35322412 instance=ExtResource("7_vny3a")]
+layout_mode = 2
+slot = 2
+
+[node name="Emerald" parent="Layout/SaveSlots" unique_id=1412500174 instance=ExtResource("7_vny3a")]
+layout_mode = 2
+slot = 3
+
+[node name="CreditsBackground" type="TextureRect" parent="." unique_id=320041531]
+custom_minimum_size = Vector2(96, 9)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_top = 116.0
+offset_bottom = 125.0
+grow_horizontal = 0
+texture = ExtResource("12_lt21p")
+
+[node name="CreditsButton" type="Button" parent="." unique_id=1670583876]
+custom_minimum_size = Vector2(100, 88)
+custom_maximum_size = Vector2(100, 88)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 32.0
+offset_right = -38.0
+offset_bottom = 120.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_w2jvr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w2jvr")
+
+[node name="Canary" type="TextureRect" parent="CreditsButton" unique_id=1593537848]
+material = SubResource("ShaderMaterial_3k2ij")
+custom_minimum_size = Vector2(100, 88)
+custom_maximum_size = Vector2(100, 88)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_rq7sb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsButton" unique_id=303870530]
+libraries/ = SubResource("AnimationLibrary_lt21p")
+autoplay = &"idle"
+
+[node name="CreditsContainer" type="PanelContainer" parent="." unique_id=1449466869]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -401.0
+offset_top = 67.0
+offset_right = -139.0
+offset_bottom = 164.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bj3ug")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CreditsContainer" unique_id=1616896672]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "font by Daniel Linssen
+https://managore.itch.io/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeakBob" type="TextureRect" parent="CreditsContainer/Label" unique_id=344847778]
+custom_minimum_size = Vector2(7, 5)
+custom_maximum_size = Vector2(7, 5)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = 3.0
+grow_horizontal = 0
+texture = ExtResource("10_3k2ij")
+
+[node name="ExitButton" type="Button" parent="." unique_id=1032958653]
+custom_minimum_size = Vector2(116, 112)
+custom_maximum_size = Vector2(116, 112)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -84.0
+offset_right = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kvq8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kvq8n")
+
+[node name="ExitSign" type="TextureRect" parent="ExitButton" unique_id=1813335681]
+material = SubResource("ShaderMaterial_x1y3i")
+custom_minimum_size = Vector2(116, 112)
+custom_maximum_size = Vector2(116, 112)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_lt21p")
+stretch_mode = 5
+
+[connection signal="focus_entered" from="CreditsButton" to="." method="_on_credits_active"]
+[connection signal="focus_exited" from="CreditsButton" to="." method="_on_credits_inactive"]
+[connection signal="mouse_entered" from="CreditsButton" to="." method="_on_credits_active"]
+[connection signal="mouse_exited" from="CreditsButton" to="." method="_on_credits_inactive"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="ExitButton" to="." method="_on_exit_active"]
+[connection signal="focus_exited" from="ExitButton" to="." method="_on_exit_inactive"]
+[connection signal="mouse_entered" from="ExitButton" to="." method="_on_exit_active"]
+[connection signal="mouse_exited" from="ExitButton" to="." method="_on_exit_inactive"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_pressed"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bruuhftr5f7lh"]
+
+[ext_resource type="Script" uid="uid://dpevirimauv5o" path="res://scene/quests/quest/quest.gd" id="1_vmrwj"]
+
+[node name="Quest" type="VBoxContainer" unique_id=186571437 node_paths=PackedStringArray("title_node", "description_node", "conditions_list")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmrwj")
+title_node = NodePath("Title")
+description_node = NodePath("Description")
+conditions_list = NodePath("Conditions")
+
+[node name="Title" type="Label" parent="." unique_id=1286534504]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=421716019]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Conditions" type="VBoxContainer" parent="." unique_id=557528670]
+layout_mode = 2

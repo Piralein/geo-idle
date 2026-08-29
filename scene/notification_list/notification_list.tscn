@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://drwoivqdykoo7"]
+
+[ext_resource type="Script" uid="uid://ywwttaiog5xr" path="res://scene/notification_list/notification_list.gd" id="1_u07iv"]
+
+[node name="NotificationList" type="Control" unique_id=663369117 node_paths=PackedStringArray("audio_player", "notification_list")]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_u07iv")
+audio_player = NodePath("AudioStreamPlayer")
+notification_list = NodePath("NotificationList")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=951462424]
+
+[node name="NotificationList" type="VBoxContainer" parent="." unique_id=2068849434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+alignment = 2
